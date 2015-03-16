@@ -10,6 +10,13 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rational.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Rational.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0FD42E03-4EEB-44FD-8DBF-35B32B35EFEF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -77,13 +84,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\lab4\lab4\main.cpp" />
-    <ClCompile Include="..\..\lab4\lab4\Rational.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\lab4\lab4\Rational.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
