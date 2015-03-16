@@ -12,6 +12,11 @@ Rational::Rational(int numerator, int denominator)
    Normalize();
 }
 
+Rational::Rational(Rational const &other) 
+   :mNumerator(other.mNumerator), mDenominator(other.mDenominator){
+   Normalize();
+}
+
 void Rational::Normalize() {
    if (mDenominator < 0) {
       mNumerator *= -1;
@@ -31,8 +36,11 @@ void Rational::Normalize() {
 }
 
 bool Rational::Equals(const Rational &other) const {
-   return mNumerator / mDenominator ==
-      other.mNumerator / other.mDenominator;
+   return (mNumerator == other.mNumerator) 
+      && (other.mDenominator == mDenominator);
+     
+   //mNumerator / mDenominator ==
+     // other.mNumerator / other.mDenominator;
 }
 
 void Rational::SetNumerator(int newNum) {
@@ -66,5 +74,68 @@ string Rational::ToString() const {
    else {
       return to_string(mNumerator) + "/" + to_string(mDenominator);
    }
+}
+
+Rational& Rational::operator=(const Rational &rhs) {
+   mNumerator = rhs.mNumerator;
+   mDenominator = rhs.mDenominator;
+   Normalize();
+   return *this;
+}
+
+Rational operator+(const Rational &lhs, const Rational &rhs) {
+   Rational newRational(lhs);
+   return newRational.add(rhs);
+}
+
+Rational operator-(const Rational &rhs) {
+   //Rational negRational(-rhs.mNumerator, rhs.mDenominator);
+   //return negRational;
+   return Rational(-rhs.mNumerator, rhs.mDenominator);
+}
+
+Rational operator-(const Rational &lhs, const Rational &rhs) {
+   int sumNumerator = (lhs.mNumerator * rhs.mDenominator) 
+      - (rhs.mNumerator * lhs.mDenominator);
+   int sumDenominator = lhs.mDenominator * rhs.mDenominator;
+   return Rational (sumNumerator, sumDenominator);
+}
+
+Rational operator*(const Rational &lhs, const Rational &rhs) {
+   return Rational(lhs.mNumerator * rhs.mNumerator,
+      lhs.mDenominator * rhs.mDenominator);
+}
+
+Rational operator/(const Rational &lhs, const Rational &rhs) {
+   return Rational(lhs.mNumerator * rhs.mDenominator,
+      lhs.mDenominator * rhs.mNumerator);
+}
+
+bool operator==(const Rational &lhs, const Rational &rhs) {
+   return lhs.Equals(rhs);
+}
+
+bool operator!=(const Rational &lhs, const Rational &rhs) {
+   return !(lhs == rhs);   
+}
+
+ostream& operator<<(ostream &lhs, const Rational &rhs) {
+   return lhs << rhs.ToString();;
+}
+
+bool operator<(const Rational &lhs, const Rational &rhs) {
+   return (lhs - rhs).mNumerator < 0;
+}
+
+bool operator>(const Rational &lhs, const Rational &rhs) {
+   return (lhs - rhs).mNumerator > 0;
+}
+
+bool operator<=(const Rational &lhs, const Rational &rhs) {
+   return ((lhs - rhs).mNumerator < 0) || (lhs.Equals(rhs));
+}
+
+bool operator>=(const Rational &lhs, const Rational &rhs) {
+   return (lhs - rhs).mNumerator < 0 || (lhs.Equals(rhs));
 }
 
