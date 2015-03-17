@@ -31,8 +31,8 @@ void Rational::Normalize() {
       x = t;
    }
 
-   mNumerator /= x;
-   mDenominator /= x;
+   mNumerator /= abs(x);
+   mDenominator /= abs(x);
 }
 
 bool Rational::Equals(const Rational &other) const {

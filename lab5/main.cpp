@@ -18,5 +18,21 @@ int main(int argc, char argv[]) {
 
    cout << r1.add(r2).ToString() << endl;
 
+   Rational r3(r1);
+   cout << "Value of r1 = " << r1 << endl;
+   cout << "Value of r2 = " << r2 << endl;
+   cout << "Value of r3 = " << r3 << endl; 
+   cout << r1 + r3 << endl;
+   cout << -r3 << endl;
+   cout << r1 - r3 << endl;
+   cout << r1 * r2 << endl;
+   cout << r1 / r3 << endl;
+   cout << (r1 == r2) << endl;
+   cout << (r1 != r3) << endl;
+   cout << (r1 < r2) << endl;
+   cout << (r1 > r2) << endl;
+   cout << (r1 <= r3) << endl;
+   cout << (r1 >= r2) << endl;
+
    system("pause");
 }
