@@ -11,6 +11,8 @@ int main(int argc, char argv[]) {
    r1.SetNumerator(48);
    r1.SetDenominator(36);
 
+  // r2.SetNumerator(10);
+
    cout << r1.GetNumerator() << endl;
    cout << r1.GetDenominator() << endl;
 
@@ -22,17 +24,17 @@ int main(int argc, char argv[]) {
    cout << "Value of r1 = " << r1 << endl;
    cout << "Value of r2 = " << r2 << endl;
    cout << "Value of r3 = " << r3 << endl; 
-   cout << r1 + r3 << endl;
-   cout << -r3 << endl;
-   cout << r1 - r3 << endl;
-   cout << r1 * r2 << endl;
-   cout << r1 / r3 << endl;
-   cout << (r1 == r2) << endl;
-   cout << (r1 != r3) << endl;
-   cout << (r1 < r2) << endl;
-   cout << (r1 > r2) << endl;
-   cout << (r1 <= r3) << endl;
-   cout << (r1 >= r2) << endl;
+   cout << "r1 + r3 = " <<r1 + r3 << endl;
+   cout << "-r3 = " << -r3 << endl;
+   cout << "r1 - r3 = " << r1 - r3 << endl;
+   cout << "r1 * r2 = " <<r1 * r2 << endl;
+   cout << "r1 / r3 = " << r1 / r3 << endl;
+   cout << "r1 == r2 = "<<(r1 == r2) << endl;
+   cout << "r1 != r3 = " <<(r1 != r3) << endl;
+   cout << "r1 < r2 = "<< (r1 < r2) << endl;
+   cout << "r1 > r2 = " <<(r1 > r2) << endl;
+   cout << "r1 <= r3 = "<<(r1 <= r3) << endl;
+   cout << "r1 >= r2 = " << (r1 >= r2) << endl;
 
    system("pause");
 }

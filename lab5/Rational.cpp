@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 #include "Rational.h"
 
 using namespace std;
@@ -69,10 +70,17 @@ Rational Rational::add(const Rational &other) const {
 }
 
 string Rational::ToString() const {
-   if (mDenominator == 0 || mDenominator == 1)
-      return to_string(mNumerator);
+   if (mDenominator == 0 || mDenominator == 1) {
+      ostringstream ss;
+      ss << mNumerator;
+      return ss.str();
+   }
+      //return ostringstream (mNumerator).str();
    else {
-      return to_string(mNumerator) + "/" + to_string(mDenominator);
+      ostringstream ss;
+      ss << mNumerator << "/"<< mDenominator;
+      return ss.str();
+      //return to_string(mNumerator) + "/" + to_string(mDenominator);
    }
 }
 
